@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سورة البقرة - آيات ١-٥ | Surah Al-Baqarah - Verses 1-5</title>
+    <link rel="icon" type="image/jpeg" href="https://i.imgur.com/PyuoJ6E.jpeg">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/PyuoJ6E.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding-top: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-family: 'Amiri Quran', serif;
+            color: #8b4513;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .chapter-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            color: #8b4513;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .audio-player-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-player-section h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .audio-player-section p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .audio-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 25px;
+            outline: none;
+            height: 54px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+        }
+
+        audio:focus {
+            outline: 2px solid #8b4513;
+            outline-offset: 2px;
+        }
+
+        .reciter-info {
+            font-family: 'Amiri', serif;
+            color: #8b4513;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .verse-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .verse-btn {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+        }
+
+        .verse-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(139, 69, 19, 0.3);
+        }
+
+        .verse-btn.active {
+            background: linear-gradient(45deg, #a0522d, #8b4513);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .verses-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .baqarah-full {
+            direction: rtl;
+            text-align: center;
+        }
+
+        .baqarah-title {
+            font-family: 'Amiri Quran', serif;
+            font-size: 1.8rem;
+            color: #8b4513;
+            margin-bottom: 30px;
+            font-weight: 700;
+            padding: 15px;
+            border-bottom: 2px solid #8b4513;
+        }
+
+        .arabic-text-full {
+            font-family: 'Amiri Quran', serif;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            line-height: 2.4;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(160, 82, 45, 0.05) 100%);
+            border-radius: 10px;
+        }
+
+        .verse-line {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .verse-marker {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .english-text-full {
+            direction: ltr;
+            text-align: left;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 2;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(230, 230, 250, 0.5) 0%, rgba(240, 248, 255, 0.5) 100%);
+            border-radius: 10px;
+            border-left: 4px solid #8b4513;
+        }
+
+        .english-verse {
+            margin: 15px 0;
+            padding: 10px 0;
+        }
+
+        .reflection-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .reflection-section h2 {
+            color: #8b4513;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #8b4513;
+        }
+
+        .reflection-point {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.03) 0%, rgba(160, 82, 45, 0.03) 100%);
+            border-radius: 10px;
+            border-left: 5px solid #8b4513;
+        }
+
+        .reflection-point h3 {
+            color: #8b4513;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .reflection-arabic {
+            font-family: 'Amiri', serif;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 20px;
+            direction: rtl;
+            text-align: right;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+        }
+
+        .reflection-english {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            direction: ltr;
+            text-align: left;
+            padding: 15px;
+            background: rgba(240, 248, 255, 0.7);
+            border-radius: 8px;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-text {
+            color: #8b4513;
+            font-size: 1.1rem;
+            margin: 12px 0;
+            font-weight: 500;
+        }
+
+        .footer-text:nth-child(2) {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .footer-text:nth-child(3),
+        .footer-text:nth-child(4) {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .signature {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signature-header {
+            color: #8b4513;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .signature-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .signature-profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .signature-info {
+            text-align: left;
+        }
+
+        .signature-name {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .signature-company {
+            color: #8b4513;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .signature-description {
+            color: #666;
+            font-size: 0.9rem;
+            max-width: 300px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .signature-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .signature-btn {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .signature-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+        }
+
+        .signature-copyright {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .chapter-info {
+                gap: 15px;
+            }
+
+            .verses-container,
+            .reflection-section,
+            .footer,
+            .signature {
+                padding: 20px;
+            }
+
+            .arabic-text-full {
+                font-size: 1.5rem;
+            }
+
+            .english-text-full {
+                font-size: 0.95rem;
+            }
+
+            .reflection-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .verse-btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .header p {
+                font-size: 0.95rem;
+            }
+
+            .arabic-text-full {
+                font-size: 1.3rem;
+                line-height: 2;
+            }
+
+            .verse-marker {
+                width: 30px;
+                height: 30px;
+            }
+
+            .verse-line {
+                gap: 10px;
+            }
+
+            .english-text-full {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            .footer-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <a href="#" class="nav-link">← Previous Verse</a>
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Next Verse →</a>
+        </div>
+
+        <div class="header">
+            <h1>سورة البقرة</h1>
+            <p>Surah Al-Baqarah | The Cow</p>
+            <p>The Second Chapter of the Qur'an</p>
+            
+            <div class="chapter-info">
+                <div class="info-item">
+                    <div class="info-label">Verses Displayed</div>
+                    <div class="info-value">1 - 5</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Chapter Number</div>
+                    <div class="info-value">2</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Revelation Period</div>
+                    <div class="info-value">Madinan</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-player-section">
+            <h3>🎵 Quranic Recitation | تلاوة قرآنية</h3>
+            <p>القارئ: عبد الباسط عبد الصمد | Reciter: Abdul Basit Abdus Samad</p>
+            
+            <div class="audio-controls">
+                <audio id="quranAudio" controls>
+                    <source id="audioSource" src="https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002001.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                
+                <div class="verse-selector">
+                    <button class="verse-btn active" onclick="playVerse(1)">Verse 1</button>
+                    <button class="verse-btn" onclick="playVerse(2)">Verse 2</button>
+                    <button class="verse-btn" onclick="playVerse(3)">Verse 3</button>
+                    <button class="verse-btn" onclick="playVerse(4)">Verse 4</button>
+                    <button class="verse-btn" onclick="playVerse(5)">Verse 5</button>
+                </div>
+                
+                <div class="reciter-info">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                </div>
+            </div>
+        </div>
+
+        <div class="verses-container">
+            <div class="baqarah-full">
+                <div class="baqarah-title">سورة البقرة</div>
+                
+                <div class="arabic-text-full">
+                    <div class="verse-line">الم <span class="verse-marker">١</span></div>
+                    <div class="verse-line">ذَٰلِكَ ٱلْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ <span class="verse-marker">٢</span></div>
+                    <div class="verse-line">ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ <span class="verse-marker">٣</span></div>
+                    <div class="verse-line">وَٱلَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِٱلْآخِرَةِ هُمْ يُوقِنُونَ <span class="verse-marker">٤</span></div>
+                    <div class="verse-line">أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ ٱلْمُفْلِحُونَ <span class="verse-marker">٥</span></div>
+                </div>
+                
+                <div class="english-text-full">
+                    <div class="english-verse"><strong>1.</strong> Alif, Lam, Meem.</div>
+                    <div class="english-verse"><strong>2.</strong> This is the Book about which there is no doubt, a guidance for those conscious of Allah -</div>
+                    <div class="english-verse"><strong>3.</strong> Who believe in the unseen, establish prayer, and spend out of what We have provided for them,</div>
+                    <div class="english-verse"><strong>4.</strong> And who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain [in faith].</div>
+                    <div class="english-verse"><strong>5.</strong> Those are upon [right] guidance from their Lord, and it is those who are the successful.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reflection-section">
+            <h2>💭 تأملات في البقرة | Reflections on Al-Baqarah</h2>
+            
+            <div class="reflection-point">
+                <h3>📖 أعظم سورة في القرآن | The Greatest Chapter After Al-Fatiha</h3>
+                <div class="reflection-arabic">
+                    سورة البقرة هي أطول سورة في القرآن! فيها 286 آية مليئة بالأحكام والحكمة والدعوة إلى الله. بدأت بأعظم الموضوعات: الكتاب الذي لا ريب فيه - القرآن العظيم. ثم وصفت المتقين الذين يؤمنون بالغيب ويقيمون الصلاة وينفقون. فيها قصص الأنبياء، والأحكام الشرعية، والمواعظ. قال النبي ﷺ: "تعلموا سورة البقرة فإن تعلمها بركة". لأن فيها كل ما يحتاجه المسلم من علم وتوجيه. سورة البقرة هي جوهر الشريعة الإسلامية!
+                </div>
+                <div class="reflection-english">
+                    Surah Al-Baqarah is the longest chapter in the Quran! It contains 286 verses filled with rulings, wisdom, and invitation to Allah. It began with the greatest topic: the Book about which there is no doubt - the Magnificent Quran. Then it described the pious who believe in the unseen and establish prayer and give charity. It contains stories of prophets, Islamic rulings, and admonitions. The Prophet ﷺ said: "Learn Surah Al-Baqarah, for learning it is blessed." Because it contains everything a Muslim needs in terms of knowledge and guidance. Surah Al-Baqarah is the essence of Islamic jurisprudence!
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>🎯 الموضوعات الرئيسية | Main Themes of Al-Baqarah</h3>
+                <div class="reflection-arabic">
+                    سورة البقرة تتناول عدة موضوعات عظيمة: أولاً - التوحيد والإيمان بالله وكتابه. ثانياً - شرائع الإسلام والأحكام العملية (الصلاة، الصيام، الحج، الزكاة). ثالثاً - قصص الأنبياء السابقين والدروس المستفادة. رابعاً - أحكام المعاملات والعلاقات الاجتماعية. خامساً - الردود على المشركين واليهود والنصارى. سورة البقرة كتاب شامل للحياة الإسلامية! تجد فيها الإيمان والعمل والعلاقات والأحكام. كل ما تحتاجه الأمة الإسلامية موجود فيها.
+                </div>
+                <div class="reflection-english">
+                    Surah Al-Baqarah addresses several great topics: First - Monotheism and belief in Allah and His Book. Second - Islamic laws and practical rulings (prayer, fasting, pilgrimage, charity). Third - Stories of previous prophets and lessons learned. Fourth - Rulings on transactions and social relationships. Fifth - Responses to polytheists, Jews and Christians. Surah Al-Baqarah is a comprehensive book for Islamic life! You find in it faith, action, relationships and rulings. Everything the Islamic nation needs is contained within it.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>👁️ الإيمان بالغيب | Believing in the Unseen</h3>
+                <div class="reflection-arabic">
+                    "الذين يؤمنون بالغيب" - هذه أول خصلة من خصال المتقين! الإيمان بالغيب معناه تصديق ما أخبر به الله دون أن نراه بأعيننا. نؤمن بالله وملائكته وكتبه ورسله واليوم الآخر والقدر خيره وشره. الإيمان بالغيب هو أساس الإيمان الحقيقي. الذي يريد أدلة حسية على كل شيء لن يؤمن. الإيمان بالغيب يتطلب عقلاً مستنيراً وقلباً مطمئناً. قال الله: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ" - لا شك في هذا الكتاب لمن عنده أدنى عقل. الإيمان بالغيب والتصديق بالقرآن يستلزم اتباعه والعمل به.
+                </div>
+                <div class="reflection-english">
+                    "Those who believe in the unseen" - this is the first characteristic of the pious! Believing in the unseen means affirming what Allah has informed us of without seeing it with our eyes. We believe in Allah, His angels, His books, His messengers, the Last Day, and Divine decree, both good and bad. Belief in the unseen is the foundation of true faith. One who seeks tangible evidence for everything will not believe. Belief in the unseen requires an enlightened mind and a reassured heart. Allah said: "This is the Book about which there is no doubt" - there is no doubt in this Book for anyone with the least intellect. Believing in the unseen and affirming the Quran necessitates following it and acting upon it.
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>💰 الإنفاق | Charity and Spending</h3>
+                <div class="reflection-arabic">
+                    "ومما رزقناهم ينفقون" - الإنفاق من أهم خصال المتقين! ليس فقط الإيمان بالغيب والصلاة، بل يجب أن يترجم الإيمان إلى عمل. الإنفاق معناه إخراج بعض المال لوجه الله. يشمل الزكاة المفروضة والصدقات المستحبة والإنفاق على الأهل والفقراء. الإنفاق ليس ضعفاً بل قوة. الرزق من عند الله والمال ليس ملكاً لنا بل ودائع من الله نحاسب عليها. الذي يخشى الفقر إذا أنفق يسقط عن إيمانه. الإنفاق برهان على صدق الإيمان وقوة اليقين. الله يضاعف الأجر للمنفقين: "الذي ينفق ماله في سبيل الله كمثل حبة أنبتت سبع سنابل".
+                </div>
+                <div class="reflection-english">
+                    "And spend out of what We have provided for them" - spending is one of the most important characteristics of the pious! Not just belief in the unseen and prayer, but faith must be translated into action. Spending means expending some wealth for the sake of Allah. It includes obligatory charity (Zakat), recommended alms, and providing for family and the poor. Spending is not weakness but strength. Sustenance is from Allah and wealth is not owned by us but a trust from Allah for which we will be held accountable. One who fears poverty when spending is deficient in faith. Spending is evidence of the sincerity of faith and strength of conviction. Allah multiplies the reward for those who spend: "The example of those who spend their wealth in the way of Allah is like a seed that grew seven ears."
+                </div>
+            </div>
+
+            <div class="reflection-point">
+                <h3>🏆 علامات النجاح | Signs of Success</h3>
+                <div class="reflection-arabic">
+                    "أولئك على هدى من ربهم وأولئك هم المفلحون" - المفلحون هم الناجحون! من هم الناجحون؟ هم الذين يؤمنون بالغيب، يقيمون الصلاة، ينفقون مما رزقهم الله، يؤمنون بما أنزل إلى النبي وما أنزل قبله، موقنون بالآخرة. هؤلاء هم على هدى من ربهم - على طريق الحق والصواب. النجاح الحقيقي ليس المال والشهرة، بل هو الهداية والطريق الصحيح. المفلح هو من يعرف الله ويطيعه ويتبع رسوله. قال الله: "قد أفلح من زكاها وقد خاب من دساها" - الفلاح في تزكية النفس وتطهيرها من الذنوب. الفلاح في الدنيا والآخرة لمن امتثل أوامر الله واجتنب نواهيه.
+                </div>
+                <div class="reflection-english">
+                    "Those are upon right guidance from their Lord, and it is those who are the successful" - The successful are the triumphant! Who are the successful? They are those who believe in the unseen, establish prayer, spend from what Allah has provided, believe in what was revealed to the Prophet and what was revealed before, and are certain of the Hereafter. These are upon guidance from their Lord - on the path of truth and correctness. True success is not wealth and fame, but it is guidance and the right path. The successful one is who knows Allah, obeys Him, and follows His Messenger. Allah said: "He has succeeded who purifies it, and he has failed who buries it" - Success is in purifying and cleansing the soul from sins. Success in this life and the hereafter comes to those who comply with Allah's commands and avoid His prohibitions.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                "ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ"
+            </div>
+            <div class="footer-text">
+                "Who believe in the unseen, establish prayer, and spend out of what We have provided for them"
+            </div>
+            <div class="footer-text">
+                May this daily reflection bring us closer to Allah and increase our understanding of His words
+            </div>
+            <div class="footer-text">
+                🤲 آمين يا رب العالمين | Ameen Ya Rabb Al-Alameen 🤲
+            </div>
+        </div>
+
+        <div class="signature">
+            <div class="signature-header">Designed and Coded by</div>
+            <div class="signature-content">
+                <img src="https://balancedlifeharmony-spec.github.io/signature-/profile.jpg" alt="Emhemed Elahresh" class="signature-profile" onerror="this.style.display='none'">
+                <div class="signature-info">
+                    <div class="signature-name">Emhemed Elahresh</div>
+                    <div class="signature-company">Victory Hour Media</div>
+                    <div class="signature-description">
+                        Creating impactful digital experiences and media solutions. Every project is crafted with attention to detail and user experience in mind.
+                    </div>
+                    <div class="signature-buttons">
+                        <a href="mailto:contact@example.com" class="signature-btn">Email</a>
+                        <a href="https://balancedlifeharmony-spec.github.io/signature-/" target="_blank" class="signature-btn">Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="signature-copyright">© 2025 Emhemed Elahresh. All rights reserved.</div>
+        </div>
+    </div>
+
+    <script>
+        const audioElement = document.getElementById('quranAudio');
+        const audioSource = document.getElementById('audioSource');
+
+        const verseUrls = {
+            1: 'https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002001.mp3',
+            2: 'https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002002.mp3',
+            3: 'https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002003.mp3',
+            4: 'https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002004.mp3',
+            5: 'https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/002005.mp3'
+        };
+
+        function playVerse(verseNumber) {
+            const buttons = document.querySelectorAll('.verse-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            audioSource.src = verseUrls[verseNumber];
+            audioElement.load();
+            audioElement.play();
+        }
+
+        // Highlight button on audio start
+        audioElement.addEventListener('play', function() {
+            // Current time in seconds to determine which verse is playing
+            const currentTime = audioElement.currentTime;
+            // This would need proper implementation based on actual verse timing
+        });
+    </script>
+</body>
+</html>
